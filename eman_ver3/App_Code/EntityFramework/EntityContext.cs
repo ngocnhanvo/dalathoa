@@ -75,6 +75,7 @@ public virtual DbSet<c_nhucauvattu_ddhpx> c_nhucauvattu_ddhpx { get; set; }
 public virtual DbSet<c_nhucauvattu_dhpx> c_nhucauvattu_dhpx { get; set; }
 public virtual DbSet<c_nhucauvattu_ycmvt> c_nhucauvattu_ycmvt { get; set; }
 public virtual DbSet<c_phidathang> c_phidathang { get; set; }
+public virtual DbSet<c_soquy> c_soquy { get; set; }
 public virtual DbSet<c_yeucaumuavt> c_yeucaumuavt { get; set; }
 public virtual DbSet<c_yeucaumuavt_cdh> c_yeucaumuavt_cdh { get; set; }
 public virtual DbSet<md_banggia> md_banggia { get; set; }
@@ -136,6 +137,7 @@ public virtual DbSet<md_lenhsanxuat2> md_lenhsanxuat2 { get; set; }
 public virtual DbSet<md_loaicont> md_loaicont { get; set; }
 public virtual DbSet<md_loaidtkd> md_loaidtkd { get; set; }
 public virtual DbSet<md_loaihoadon> md_loaihoadon { get; set; }
+public virtual DbSet<md_loaithuchi> md_loaithuchi { get; set; }
 public virtual DbSet<md_modongky> md_modongky { get; set; }
 public virtual DbSet<md_namtaichinh> md_namtaichinh { get; set; }
 public virtual DbSet<md_namtaichinh_ky> md_namtaichinh_ky { get; set; }
@@ -159,6 +161,7 @@ public virtual DbSet<md_phanxuong_to> md_phanxuong_to { get; set; }
 public virtual DbSet<md_phanxuongMain> md_phanxuongMain { get; set; }
 public virtual DbSet<md_phienbangia> md_phienbangia { get; set; }
 public virtual DbSet<md_quocgia> md_quocgia { get; set; }
+public virtual DbSet<md_quy> md_quy { get; set; }
 public virtual DbSet<md_sanpham> md_sanpham { get; set; }
 public virtual DbSet<md_sanpham_bom> md_sanpham_bom { get; set; }
 public virtual DbSet<md_sanpham_bom_vattu> md_sanpham_bom_vattu { get; set; }
