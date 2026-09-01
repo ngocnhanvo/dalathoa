@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hóa đơn bán hàng - HD020405</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 20mm;
+            background-color: #ffffff;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .company-info {
+            font-size: 12px;
+            color: #111111;
+            margin-bottom: 2px;
+        }
+
+        .invoice-title-box {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .invoice-title {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .invoice-meta {
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .customer-info {
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Items Table */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+            .items-table th {
+                border-top: 2px solid #000;
+                border-bottom: 1px solid #000;
+                padding: 6px 0;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            .items-table td {
+                padding: 6px 0;
+            }
+
+        .item-name-row td {
+            padding-top: 8px;
+            padding-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .item-details-row td {
+            padding-top: 2px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #777777;
+        }
+
+        /* Summary Section */
+        .summary-container {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+            .summary-container td {
+                padding: 3px 0;
+                font-size: 13px;
+            }
+
+        .summary-label {
+            text-align: right;
+            font-weight: bold;
+            padding-right: 25px;
+            width: 80%;
+        }
+
+        .summary-value {
+            text-align: right;
+            font-weight: bold;
+            width: 20%;
+        }
+
+        .footer-notes {
+            margin-top: 25px;
+            font-size: 12.5px;
+            line-height: 1.6;
+        }
+
+        .closing-thank {
+            margin-top: 60px;
+            text-align: center;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* Tự động ẩn nút bấm khi nhấn lệnh In (Ctrl + P) */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        .print-btn-bar {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .print-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nút kích hoạt lệnh in -->
+    <div class="no-print print-btn-bar">
+        <button class="print-btn" onclick="window.print()">In Hóa Đơn</button>
+    </div>
+
+    <!-- Thông tin thương hiệu -->
+    <div class="header">
+        <div class="brand-title">DaLat Hoa</div>
+        <div class="company-info">Kiot 19, B5 khu C 30 thành thái , Phường 14, Quận 10</div>
+        <div class="company-info">(Đối diện Vinaphone 224 thành thái)</div>
+        <div class="company-info">SĐT: 093 444 5528</div>
+        <div class="company-info">www. dalathoa.com.vn</div>
+    </div>
+
+    <!-- Tiêu đề hóa đơn -->
+    <div class="invoice-title-box">
+        <div class="invoice-title">HÓA ĐƠN BÁN HÀNG</div>
+        <div class="invoice-meta">Số HĐ: HD020405</div>
+        <div class="invoice-meta">Ngày 23 tháng 07 năm 2026 20 : 29</div>
+    </div>
+
+    <!-- Thông tin khách hàng & nhân viên -->
+    <div class="customer-info">
+        <div><span class="font-bold">Khách hàng:</span> Tuấn A 0907858986</div>
+        <div><span class="font-bold">SĐT:</span> 0907858986</div>
+        <div><span class="font-bold">Địa chỉ:</span> Cty Xi Măng Chinfon 348 Bến Vân Đồn</div>
+        <div><span class="font-bold">Người nhận:</span></div>
+        <div><span class="font-bold">SĐT:</span></div>
+        <div><span class="font-bold">NVBH:</span> Ma Thanh Tuan</div>
+    </div>
+
+    <!-- Bảng sản phẩm -->
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Đơn giá</th>
+                <th style="width: 20%; text-align: center;">SL</th>
+                <th style="width: 30%; text-align: right;">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="item-name-row">
+                <td colspan="3">Lan Hồ Điệp Loại A - (Cành)</td>
+            </tr>
+            <tr class="item-details-row">
+                <td>5,500</td>
+                <td class="text-center">100</td>
+                <td class="text-right">550,000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Bảng tổng cộng & thanh toán -->
+    <table class="summary-container">
+        <tr>
+            <td class="summary-label">Tổng tiền hàng:</td>
+            <td class="summary-value">550,000</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Chiết khấu :</td>
+            <td class="summary-value">0</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Tiền Thuế:</td>
+            <td class="summary-value">111</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Tiền Vận Chuyển:</td>
+            <td class="summary-value">222</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Tổng thanh toán:</td>
+            <td class="summary-value">550,333</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Khách cọc:</td>
+            <td class="summary-value">400,000</td>
+        </tr>
+        <tr>
+            <td class="summary-label">Còn lại:</td>
+            <td class="summary-value">150,333</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-right" style="padding-top: 2px;">Tiền mặt</td>
+        </tr>
+    </table>
+
+    <!-- Số tiền bằng chữ & ghi chú -->
+    <div class="footer-notes">
+        <div class="italic">(Năm trăm năm mươi nghìn ba trăm ba mươi ba đồng chẳn)</div>
+        <div class="italic"><span class="font-bold" style="font-style: normal;">Ghi chú:</span> Nhắn test chức năng thanh toán thiếu</div>
+    </div>
+
+    <!-- Lời cảm ơn -->
+    <div class="closing-thank">
+        Cảm ơn và hẹn gặp lại!
+    </div>
+
+</body>
+</html>

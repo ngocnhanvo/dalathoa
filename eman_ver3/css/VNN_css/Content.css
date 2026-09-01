@@ -1,0 +1,107 @@
+﻿.a_codefile, .a_href, img.img_codefile {
+    cursor: pointer;
+}
+
+.span_modulelv0_first {
+    margin: -2px 0 0 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #013f7f;
+    position: absolute;
+}
+
+.img_rightdiv {
+    font-size: 1.2em !important;
+}
+
+.img_title_jqgrid {
+    float: left;
+    margin: 1px 7px 0 2px;
+    height: 15px;
+}
+
+.span_button {
+    float: left;
+    position: absolute;
+    margin: 3px 0 0 2px;
+}
+
+.div_module_background {
+    margin: -26px 0 3px;
+    border-bottom: 0;
+    width: 100%;
+}
+
+.border_div_modulelv1 {
+    padding: 5px 0 0;
+    background-image: url(../../images/Menu/Menu_bordertop.png);
+    background-repeat: repeat-x;
+}
+
+.div_modulelv0 {
+    padding: 27px 3px 0;
+    width: 99%;
+    margin: -66px 0 0;
+}
+
+.div_modulelv1 {
+    margin: 6px 0 6px 10px;
+    border-top: 1px solid #ccc;
+}
+
+.div_modulelv2 {
+    margin: 0 0 6px 10px;
+    border-top: 1px solid #ccc;
+}
+
+.dialog_index {
+    z-index: 1000;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+img.btn_click, span.btn_click {
+    background-color: #C5DBEC;
+}
+
+div.rightclick_header {
+    background-color: #ffffff;
+    color: #7c7c7c;
+    margin-bottom: 7px;
+}
+
+img.img_codefile:hover {
+    background: #ccc;
+}
+
+.a_codefile {
+    color: #014285;
+}
+
+    .a_codefile:hover {
+        background: #F8F684;
+    }
+
+    .a_codefile.glyphicon {
+        font-size: 12px;
+        float: right;
+    }
+
+.a_href {
+    color: #0909c5 !important;
+    text-decoration: underline !important;
+}
+
+td.sel_checkbox_jqg {
+    background-repeat: no-repeat;
+    background-position: 50% center;
+    background-image: url(../../images/icon/checked_ok.png);
+}
+
+div.ui-jqgrid.ui-widget.ui-widget-content.ui-corner-all {
+    border-left: none;
+}
+
+input.cbox {
+    margin: 0px;
+} 

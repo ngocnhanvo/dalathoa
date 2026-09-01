@@ -1,0 +1,195 @@
+﻿<table class="cl_table_menu">
+    <tr>
+        <!--menu -->
+        <td class="menu_td_menuchinh" style="max-width: 220px;" colspan="6" valign="top">
+            <div class="cl_div_menu">
+                <div class="menu_div_dongkhung">
+                    <table style="width: 100%;margin: 20px 0 0 0; border-collapse: collapse; ">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+        <!--#menu -->
+    </tr>
+</table>
+
+<script type="text/javascript">
+    function dem_Records_menu() {
+        var a_menu = $('.menu_td_menuchinh tr td table tr td div table tr td a');
+        $(a_menu).removeAttr('style');
+        $(a_menu).css('color', 'red');
+        var val_final = "";
+        $(a_menu).each(function (index, val) {
+            val_final += $(this).attr('name');
+            if (index < $(a_menu).length - 1) {
+                val_final += ",";
+            }
+        });
+        if (val_final != null & val_final != "") {
+            click_loadtrangchu();
+            $('.menu_td_menuchinh tr td table tr td div table tr td a').removeAttr('style');
+            $('.menu_td_menuchinh tr td table tr td div table tr td a').css('color', 'black');
+            loadgrid_at = false;
+            //$.post('Controller/PublicFunction/CountDocument.ashx?oper=countCV',
+            //{ ma_menu: val_final }, function (result) {
+            //    result = result.split('(##)');
+            //    $(a_menu).each(function (index, val) {
+            //        loadgiatri_demCV($(this).attr('id'), result[index]);
+            //    });
+            //});
+        }
+    }
+
+    $('.menu_td_menuchinh table').html('<tr><td class="loading" height="50px"></td></tr>');
+
+    $.ajax({
+        type: "GET",
+        url: "Controller/JqGridModify/JQGridMD_00_MNZModify.ashx?oper=loadMenu",
+        success: function (msg) {
+            $('.menu_td_menuchinh table').html(msg);
+            dem_Records_menu();
+            let $elementScroll = null;
+            if (isLinkTransfer) {
+                $('#a_' + menuLinkTransfer).click();
+                $('#tr_' + menuLinkTransfer).parent().parent().prev().click();
+            }
+            else {
+                if (menuSav) {
+                    $elementScroll = $('#a_' + menuSav);
+                    setTimeout(() => {
+                        const $tbl = $('#tr_' + menuSav).parent().parent();
+                        $elementScroll.click();
+                        if (!$tbl.hasClass('menu_btndanhan'))
+                            $tbl.prev().click();
+                        menuSav = '';
+                    }, 0);
+                }
+            }
+
+            if (tuDongNhanDienCachIn) {
+                $('.menu-cha-tr > td > table:not(.menu_btndanhan)').each(function () {
+                    const id = $(this).parent().parent().attr('id');
+                    $(this).addClass('menu_btndanhan').show();
+                    $i = $(this).prev().find('.angle').children();
+                    $i.addClass('fa-angle-down');
+                    $i.removeClass('fa-angle-right');
+                });
+            }
+
+            if ($elementScroll) {
+                scrollInternal($('.menu_div_dongkhung'), $elementScroll);
+                //document.querySelector(`#${$elementScroll.attr('id')}`).scrollIntoView({
+                //    behavior: 'auto',
+                //    block: 'center'
+                //});
+                //$('body').scrollTop(0);
+            }
+        }
+    });
+
+    function loadMenucon(e, d) {
+        let $this_sel = $(`#tr_${e} > td > table`);
+        let $i = $this_sel.prev().find('.angle').children();
+        if ($this_sel.hasClass('menu_btndanhan')) {
+            $this_sel.fadeOut(200, function () {
+                $(this).removeClass('menu_btndanhan');
+            });
+            $i.removeClass('fa-angle-down');
+            $i.addClass('fa-angle-right');
+        }
+        else {
+            $this_sel.addClass('menu_btndanhan');
+            $this_sel.fadeIn(200, function () {
+                $(this).removeAttr('style');
+            });
+            $i.addClass('fa-angle-down');
+            $i.removeClass('fa-angle-right');
+        }
+
+        if (btnDongMenuConTuDong) {
+            $('.menu-cha-tr > td > table.menu_btndanhan').each(function () {
+                const id = $(this).parent().parent().attr('id');
+                if (id != 'tr_' + e) {
+                    $(this).removeClass('menu_btndanhan').hide();
+                    $i = $(this).prev().find('.angle').children();
+                    $i.removeClass('fa-angle-down');
+                    $i.addClass('fa-angle-right');
+                }
+            });
+        }
+    }
+
+
+    function loadContent(e, d, c, q) {
+        $('.menu_td_menuchinh tr td table tr td').removeClass('menu_btndanhan');
+
+        //xoa gach duoi tat ca va them vao td vừa nhấn
+        $('.menu_td_menuchinh tr td table tr td div table tr td span').removeAttr('style');
+        //$('.menu_td_menuchinh tr td table tr td div table tr td span').css('color', 'rgba(0, 0, 0, 0.8)');
+        $('.menu_td_menuchinh tr td table tr td div table tr td.menu-con-td > span.menu-con-selected').removeClass('menu-con-selected');
+        $('#td_' + e + ' div table tr td.menu-con-td span').addClass('menu-con-selected');
+
+        $('#td_' + e).addClass('menu_btndanhan');
+
+        //load content cua menu nay voi url nay
+        $('#input_urlmenu').val(d);
+        $('#input_idmenu').val(e);
+
+        //lam moi gia tri ten cho su kien url of clicking events
+        $('#input_tenmenu0').val(q);
+        $('#input_tenmenu1').val(c);
+        $('.cl_td_urlmenu > div').empty();
+
+        $('#input_tenmodule1').val("");
+        $('#input_tenmodule2').val("");
+        // gán giá trị cho sự kiện trở về trang trước
+        $('#input_trovetrangtruoc').val($('#input_trovetrangtruoc').val() + '/' + 'td_' + e);
+        document.title = c;
+        dataToShareScreen = { ...dataToShareScreen_contructor };
+        dataToShareScreen.mn = e;
+        update_dataToShareScreen();
+
+        if (btnDongMenuTuDong) {
+            $('div.displayMenuConfig').click();
+        }
+
+        showHideMenuMobile();
+
+        loadPage('Menu/Content/Content.aspx');
+
+    }
+
+    function overmouse_menu_lv0(e) {
+        //$('#' + e).css('font-weight', '700');
+    }
+    function outmouse_menu_lv0(e) {
+        //$('#' + e).removeAttr('style');
+    }
+
+    function overmouse_menu_lv1(e) {
+        if (!$('#' + e).hasClass('menu_btndanhan')) {
+            $('#' + e + ' div table tr td span').css('color', '#ffa569');
+        }
+    }
+    function outmouse_menu_lv1(e) {
+        if (!$('#' + e).hasClass('menu_btndanhan')) {
+            $('#' + e + ' div table tr td span').removeAttr('style');
+        }
+    }
+
+    $('#a_user > a').html(ma_tk);
+    $('#a_userVaitro > a').html(ten_role);
+
+    //click_refreshPage();
+
+    checkNewReport();
+</script>

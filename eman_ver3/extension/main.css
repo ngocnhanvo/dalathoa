@@ -1,0 +1,35 @@
+body{
+    background-color: gainsboro;
+  }
+  h1{
+    color:salmon;
+    padding-top:40px;
+    text-align:center;
+  }
+  input{
+    height:30px;
+    width:50%;
+    border:none;
+  }
+
+  i{
+    color:#fff;
+  }
+  button{
+    background-color:#2E9AFE;
+    height:30px;
+    width:40px;
+    border:1px transparent solid;
+  }
+  button:hover{
+    background-color:blue;
+    height:30px;
+    width:40px;
+    border:1px transparent solid;
+  }
+  form{
+    box-sizing: border-box;
+    display:flex;
+    margin-left:35%;
+  }
+  

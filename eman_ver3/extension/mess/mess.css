@@ -1,0 +1,424 @@
+/* Styles for wrapping the search box */
+
+body {
+    /*background-image: url(reportBackground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+img {
+    max-width: 100%;
+    user-select: none;
+}
+
+a[excel] {
+    cursor: pointer;
+    color: purple !important;
+    user-select: none;
+    position: relative;
+    top: -5px;
+    right: 5px;
+}
+
+span.viewMess {
+    cursor: pointer;
+    color: blue;
+    user-select: none;
+    right: 22px;
+    position: absolute;
+    margin-top: -23px;
+}
+
+img.avatarRpt {
+    width: 43px;
+    height: 43px;
+    position: absolute;
+    margin-left: 12px;
+    z-index: 2;
+}
+
+img.reportPublic {
+    height: 40px;
+    position: absolute;
+    top: -4px;
+}
+
+    img.reportPublic.left {
+        left: 0px;
+    }
+
+    img.reportPublic.right {
+        right: 0px;
+        transform: scaleX(-1);
+    }
+.form-control {
+    font-size: 85%;
+}
+.main {
+    margin: 15px auto 0px auto;
+    padding: 0px 30px 0px 30px;
+}
+
+    .main .contentA > .title {
+        background-color: #f9f8ce;
+        padding: 10px;
+        padding-left: 50px;
+        text-align: left;
+        color: #000;
+    }
+
+    .main .contentA > .content {
+        padding: 10px;
+    }
+
+* {
+    box-sizing: border-box;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.row {
+    display: contents;
+}
+
+h1 {
+    text-align: center;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    background-color: #f7f7f7;
+    min-height: calc(100vh - 6.3em);
+}
+
+    #myUL > li {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+
+    #myUL li div.contentA {
+        /*border: 1px solid #ddd;*/
+        margin: 0px 10px 0px 10px;
+        background-color: #f6f6f6;
+        /*padding: 12px;*/
+        text-decoration: none;
+        /*font-size: 18px;*/
+        /*color: black;*/
+        display: block;
+        text-align: justify;
+        font-size: 85%;
+    }
+
+    #myUL li a:hover:not(.header) {
+        background-color: #eee;
+    }
+
+.list {
+    height: 50%;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.hidden {
+    /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn.focus, .btn:focus, .form-control:focus {
+    box-shadow: none !important;
+}
+
+div.searchDate {
+    position: absolute;
+    right: 112px;
+    top: -11px;
+    background-color: #e3e3e3;
+    padding: 5px;
+    border: 1px solid #CCC;
+    box-shadow: 0px 0px 1px 0px #000000;
+    min-width: 150px;
+}
+
+.searchDate .fa.fa-caret-left {
+    position: absolute;
+    right: -10px;
+    top: 8px;
+    transform: rotate(180deg);
+    color: #e3e3e3;
+    font-size: 40px;
+}
+
+.searchDate span.btnRefresh {
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 15px;
+    margin-top: 8px;
+    float: left;
+}
+
+.searchDate .btnSelectDate {
+    margin-top: 5px;
+    font-weight: bold;
+    float: right;
+    margin-right: 15px;
+}
+
+.tabsPanelSearch {
+    margin-top: 8px;
+    text-align: right;
+}
+
+    .tabsPanelSearch > div.tabDetailAll {
+        display: inline-block;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 90%;
+    }
+
+    .tabsPanelSearch > div.tabDetail {
+        display: inline-block;
+        background: linear-gradient(45deg, #4259bf, #9298a0);
+        color: #FFF;
+        padding: 3px 5px 3px 5px;
+        border-radius: 4px;
+        font-size: 80%;
+        margin-left: 8px;
+        cursor: pointer;
+    }
+
+        .tabsPanelSearch > div.tabDetail > .fa.fa-times {
+            padding: 5px 4px 4px 4px;
+        }
+
+            .tabsPanelSearch > div.tabDetail > .fa.fa-times:hover {
+                opacity: 0.5;
+            }
+
+.panelSearch {
+    position: absolute;
+    width: 120px;
+    z-index: 9999;
+    background-color: #FFF;
+    top: 36px;
+    left: -51px;
+    border: 1px solid #CCC;
+    transition: opacity .2s ease-out;
+}
+
+    .panelSearch > div.fa.fa-caret-left {
+        transform: rotate(90deg);
+        position: absolute;
+        left: 57.5px;
+        top: -22px;
+        font-size: 40px;
+        color: #FFF;
+    }
+
+    .panelSearch ul {
+        padding: 6px;
+        margin-bottom: 0px;
+        font-size: 80%;
+    }
+
+        .panelSearch ul li {
+            display: block;
+            padding: 4px;
+            text-align: center;
+        }
+
+            .panelSearch ul li > span {
+                background-color: #485aa1;
+                padding: 3px 5px 3px 5px;
+                color: #FFF;
+                width: 100%;
+                display: block;
+                border-radius: 4px;
+                cursor: pointer;
+                user-select: none;
+            }
+
+
+.loadingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11000;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50% !important;
+    border: 3px solid transparent;
+    /*border-top-color: #3498db;*/
+    border-top-color: #3498db;
+    cursor: default;
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        /*border-top-color: #e74c3c;*/
+        border-top-color: #3498db;
+        -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        /*border-top-color: #f9c922;*/
+        border-top-color: #3498db;
+        -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+a[file] {
+    cursor: pointer !important;
+    color: #007bff !important;
+    text-decoration: underline !important;
+}
+
+div.noidung {
+    position: relative;
+    width: 100%;
+}
+
+    div.noidung > div.fa.fa-caret-left {
+        position: absolute;
+        top: 10px;
+        left: 1px;
+        font-size: 30px;
+        color: #fff27c;
+        display: none;
+    }
+
+#time {
+    display: block;
+}
+/*     */
+.collapse.in {
+    display: block !important;
+}
+
+#btnFil {
+    display: inline-block;
+    background-color: dimgrey;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.timefil {
+    outline: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: black;
+    cursor: pointer;
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
+
+/**/
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg); /* IE 9 */
+        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg); /* IE 9 */
+        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg); /* IE 9 */
+        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg); /* IE 9 */
+        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+    }
+}

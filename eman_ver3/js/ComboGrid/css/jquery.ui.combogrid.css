@@ -1,0 +1,230 @@
+.combogrid {
+    font-size: .8em !important;
+    background-color: #FFF;
+}
+
+body.light-mode .combogrid {
+
+}
+
+body.mix-mode .combogrid {
+    color: #000;
+}
+
+.input-bg {
+    background-image: url(cg-images/magnifier.png);
+    background-position: 100% 4px;
+    background-repeat: no-repeat;
+    padding-right: 16px
+}
+
+.cg-colHeader.asc, .cg-colHeader.desc {
+    background-image: url(images/ui-icons_888888_256x240.png)
+}
+
+#cg-divHeader {
+    height: 17px;
+    padding: 4px;
+    /*-moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    margin: -3px -3px 0 -1px*/
+}
+
+.cg-colHeader {
+    float: left;
+    font: 13px verdana,arial,sans-serif;
+    font-weight: 700
+}
+
+.cg-colHeader-label {
+    padding: 0;
+    margin: 0;
+    cursor: pointer
+}
+
+    .cg-colHeader-label:hover {
+        text-decoration: underline
+    }
+
+.cg-colHeader span {
+    height: 12px;
+    width: 12px;
+    position: absolute
+}
+
+.cg-colHeader.asc {
+    background-position: -64px -16px
+}
+
+.cg-colHeader.desc {
+    background-position: 0 -16px
+}
+
+.cg-colItem {
+    min-height: 14px;
+    display: flex;
+    padding: 5px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0
+}
+
+.cgcombo-state-hover {
+    background-color: #eee;
+    border: 1px solid #ccc
+}
+
+.cg-comboButton {
+    background-color: #eee;
+    height: 25px;
+    /*margin: -3px 0 -3px -1px;*/
+    padding: 2px 2px 2px 0;
+    width: 100%;
+    /*-moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;*/
+    outline: 0;
+    vertical-align: baseline
+}
+
+.cg-navTable {
+    float: left;
+    table-layout: auto;
+    width: 100%;
+    font-size: .7em;
+    font-weight: 400;
+    border: 0;
+    margin: 0
+}
+
+    .cg-navTable td {
+        padding: 1px;
+        border: 0;
+        text-shadow: none
+    }
+
+.cg-comboItem, .cg-comboItem-even, .cg-comboItem-odd {
+    height: 24px;
+    padding-bottom: 2px !important
+}
+
+.cg-navTable tr {
+    color: inherit;
+    background: 0 0;
+    border: 0
+}
+
+.cg-comboItem {
+    margin: 0;
+    width: 100%;
+    border: 1px solid #fff
+}
+
+.cg-comboItem-even {
+    background-color: #edf6f8
+}
+
+.cg-DivItem {
+    float: left;
+    font-size: .8em;
+    overflow: hidden;
+    height: auto;
+}
+
+.cg-pg-button {
+    padding: 1px;
+    width: 18px
+}
+
+.cg-pg-table {
+    border: 0;
+    padding: 0;
+    margin: 0
+}
+
+.cg-pg-button:hover {
+    border: 1px solid #999;
+    background: #dadada !important;
+    background-image: none !important;
+    font-weight: 400;
+    color: #212121;
+    padding: 0
+}
+
+.cg-pg-button.cg-state-disabled:hover {
+    border: 1px #ececec !important;
+    padding: 1px;
+    background: 0 0
+}
+
+#cg-navInfo {
+    text-align: center
+}
+
+.cg-autocomplete {
+    position: absolute;
+    cursor: default
+}
+
+* html .cg-autocomplete {
+    width: 1px
+}
+
+.cg-menu {
+    padding-right: 2px;
+    margin: 0
+}
+
+    .cg-menu .cg-menu {
+        margin-top: -3px
+    }
+
+    .cg-menu .cg-menu-item {
+        margin: 0;
+        padding: 0;
+        clear: left;
+        border: 1px solid transparent;
+        height: 100%;
+    }
+
+        .cg-menu .cg-menu-item a {
+            text-decoration: none;
+            display: block;
+            padding: .2em .4em;
+            line-height: 1.5;
+            zoom: 1
+        }
+
+            .cg-menu .cg-menu-item a.cg-state-active, .cg-menu .cg-menu-item a.cg-state-hover {
+                font-weight: 400;
+                margin: -1px
+            }
+
+.cg-resetButton, .cg-searchButton {
+    cursor: pointer;
+    display: inline-block;
+    margin: 1px;
+    padding: 3px;
+    vertical-align: bottom
+}
+
+.notok-icon, .ok-icon {
+    margin-bottom: 6px;
+    vertical-align: bottom;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-left: 3px
+}
+
+.cg-loading {
+    background-image: url(cg-images/loading.gif);
+    background-position: 100% 2px;
+    background-repeat: no-repeat
+}
+
+.ok-icon {
+    background-image: url(cg-images/accept.png)
+}
+
+.notok-icon {
+    background-image: url(cg-images/exclamation.png)
+}

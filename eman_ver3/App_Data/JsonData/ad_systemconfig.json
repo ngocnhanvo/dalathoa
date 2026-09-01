@@ -1,0 +1,32 @@
+[
+  {
+    "ad_systemconfig_id": "2d329184c2344d11b5fa218f5490b12e",
+    "tencongty": "Lâm Hiệp Hưng",
+    "logo": "upload/2d329184c2344d11b5fa218f5490b12e.png",
+    "logo_trangchu": "upload/2d329184c2344d11b5fa218f5490b12e1.png",
+    "diachi": "",
+    "phone": "",
+    "fax": "1",
+    "website": "1",
+    "emailserver": "smtp.gmail.com",
+    "port": "587",
+    "taikhoanemail": "vongocnhancd10cntt2@gmail.com",
+    "passemail": "fltwribpdhbvnjrh",
+    "ssl": null,
+    "url_lichtuan": "/upload/tailieu/2d329184c2344d11b5fa218f5490b12e2659227e-7558-418f-b334-e68bb45e7ab1.pdf",
+    "mausac": "mau_01",
+    "soluong_grid": 50,
+    "soluong_grid_2": "50,100,200,500,1000",
+    "ten_canhbao": null,
+    "domain": null,
+    "email_hotro": null,
+    "url_linq": null,
+    "ten_db": null,
+    "ten_linq": null,
+    "ten_connectstring": null,
+    "format_ngay": "dd-MM-yyyy hh:mm",
+    "format_so": "1,000.00",
+    "connectstring_anco": null,
+    "date_import": "2019-02-27T09:14:51.737"
+  }
+]

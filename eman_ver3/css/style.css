@@ -1,0 +1,865 @@
+@charset "UTF-8";
+
+.btn-escedoc {
+    background-color: #21759b;
+    background-image: linear-gradient(to bottom,#2a95c5,#21759b);
+    box-shadow: 0 1px 0 rgba(120,200,230,.5) inset;
+    border-color: #21759b #21759b #1e6a8d #21759b;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    padding: 7px 15px 7px 15px;
+    margin: 4px 0 0 2px;
+    color: #fff !important;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+table, tr, td, th {
+    font-size: inherit;
+    color: inherit;
+}
+
+    tr#\30 {
+        position: relative;
+    }
+
+.EditTable .DataTD .FormElement:focus {
+    outline: 1px solid #555555;
+}
+
+.EditTable.report {
+    max-width: 450px;
+}
+
+input[name="rdo_SLVC"] {
+    margin: 3px !important;
+}
+
+.labelFor {
+    cursor: pointer;
+}
+
+table.view-capacity tr td {
+    padding: 5px;
+    text-align: center;
+}
+
+.AlignRight {
+    text-align: right;
+}
+
+.clear-scroll, .rotate {
+    overflow: hidden
+}
+
+span.close {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    color: #033786
+}
+
+    span.close a:active, span.close a:link, span.close a:visited {
+        text-decoration: none;
+        font-weight: 700;
+        color: #000
+    }
+
+    span.close a:hover {
+        color: #F90
+    }
+
+.ui-tabs {
+    padding: 0;
+    border: 0
+}
+
+p {
+    margin: 2px
+}
+
+.cg-DivItem {
+    font-size: 1.2em !important;
+    padding: 3px;
+}
+
+.cg-comboButton .currentPage, .cg-comboButton select {
+    height: 22px
+}
+
+h1.title {
+    font-weight: 400;
+    color: #00376e;
+    font-family: serif;
+    font-size: 19px !important;
+    margin: 5px 30px
+}
+
+.header .title, .toolbar .title {
+    font-size: 12px;
+    font-weight: 700
+}
+
+.footer {
+    background: #f7f7f7;
+    position: fixed;
+    margin: -4px 0 0;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    z-index: 0;
+    display: block;
+    visibility: visible;
+    text-align: right;
+    color: #038677;
+}
+
+.toolbar {
+    overflow-y: hidden;
+    background: url(../images/toolbar.jpg) bottom repeat-x
+}
+
+    .toolbar table tr td {
+        min-width: 100px;
+        text-align: center;
+        cursor: pointer
+    }
+
+.toolbar-item-hover, .toolbar-item-hover:hover .title {
+    background: #0279b2;
+    color: #FFF !important
+}
+
+.toolbar .title {
+    color: #67e1fb;
+    text-transform: uppercase;
+    padding-top: 4px
+}
+
+.ui-layout-pane {
+    padding: 0 !important;
+    border: 0
+}
+
+.padding-10 {
+    padding: 5px 10px !important
+}
+
+.ui-jqgrid tr.jqgrow td {
+    min-height: 20px
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0
+}
+
+.EditTable .DataTD input, .EditTable .DataTD select, .EditTable .DataTD textarea {
+    width: calc(100% - 6px);
+}
+
+    .EditTable .DataTD input[type=checkbox] {
+        width: 15px
+    }
+
+.ui-tabs-panel {
+    width: 100%
+}
+
+.ui-search-clear {
+    width: 0
+}
+
+.ui-jqgrid .ui-pg-input {
+    font-size: 100%;
+    width: fit-content;
+    text-align: right !important;
+    border: none;
+    background-color: #fafafa;
+    padding: 0px;
+    color: #4a4a4a;
+    outline: none;
+    display: none;
+}
+
+option {
+    font-family: Arial !important;
+    color: #1414AA;
+    text-align: left
+}
+
+div.ui-layout-north.toolbar.ui-layout-pane.ui-layout-pane-north {
+    min-width: 1000px
+}
+
+.nhan_disable {
+    color: #000;
+    border-color: Gray;
+    background-color: #d8d8d8;
+    opacity: 1;
+}
+
+span.btn_check_div0.glyphicon, span.btn_check_div1.glyphicon, span.btn_check_div2.glyphicon {
+    position: relative;
+    cursor: pointer;
+    font-size: 90% !important;
+}
+
+.ui-jqgrid tr.jqgrow:hover {
+    font-weight: none !important
+}
+
+.nhan_combobox {
+    position: fixed;
+    z-index: 100;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #67E1FB;
+    height: 80px;
+    background-color: #fff;
+    font-family: initial;
+    left: -1000px
+}
+
+.rotate {
+    -webkit-transition-duration: .8s;
+    -moz-transition-duration: .8s;
+    -o-transition-duration: .8s;
+    transition-duration: .8s;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+    position: fixed;
+    z-index: 1000;
+    filter: alpha(opacity=90);
+    opacity: .25
+}
+
+    .rotate:hover {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        opacity: .45;
+        cursor: pointer
+    }
+
+    .rotate:active {
+        background-color: #F3EA19
+    }
+
+.jqx-combobox-arrow-normal jqx-fill-state-normal jqx-rc-r jqx-combobox-arrow-s {
+    border-width: 0 0 0 1px;
+    float: right;
+    height: 25px;
+    left: 123px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 19px
+}
+
+.VNN_search, .VNN_search_filter, .VNN_configGV {
+    background-repeat: no-repeat;
+    cursor: pointer;
+    /*filter: brightness(0) invert(0.25);*/
+    height: 90% !important;
+}
+
+.VNN_search {
+    background-image: url(../images/icon/filter.png);
+    background-position: center 3px;
+    background-size: 13px;
+}
+
+.VNN_configGV {
+    background-image: url(../images/icon/print.png);
+    background-position: 5px 0px;
+    background-size: 15px 13px;
+}
+
+.VNN_search_filter {
+    background-image: url(../images/icon/filter_select.png);
+    background-position: 50% 18%;
+    background-size: 13px;
+}
+
+textarea:read-only {
+    cursor: default;
+}
+
+.pTitlePublic {
+    margin: 5px 0 3px 0;
+    font-weight: bold;
+}
+
+body.light-mode .pTitlePublic {
+    color: blue;
+}
+
+body.mix-mode .pTitlePublic {
+    color: #c9c4ff;
+}
+
+#tr_MN_00_QLK span.image_menu1.glyphicon.glyphicon-log-in {
+    display: inline-block;
+    transform: rotate(180deg);
+    top: 2px;
+    left: 1px;
+}
+
+.ui-search-input input, .ui-search-input select {
+    height: 19px;
+    text-align: center;
+    outline: 0;
+    border-radius: 3px;
+}
+
+#jqxWidget {
+    position: absolute;
+    width: 142px !important;
+    z-index: 200
+}
+
+.ui-search-input select {
+    -webkit-border-before: 0 !important;
+    -webkit-border-after: 0 !important;
+    -webkit-border-start: 0;
+    -webkit-border-end: 0
+}
+
+.ui-search-input input {
+    margin: 2 0 0 !important;
+    -webkit-border-after-style: none;
+    -webkit-border-before-style: none;
+    -webkit-border-start-style: none
+}
+
+.nhan_loading {
+    width: 50px;
+    height: 17px;
+    background: url(../images/loading/loading3.gif) center center no-repeat !important
+}
+
+.nhan_loading0 {
+    height: 50px;
+    background: url(../images/loading/loading30.gif) center center no-repeat !important
+}
+
+.loading {
+    background: url(../images/loading/nhan_loading1.gif) center center no-repeat !important
+}
+
+.ui-search-toolbar {
+    border-top: 2px solid rgba(121,107,107,.48);
+    height: 30px;
+}
+
+span {
+    white-space: pre
+}
+
+    span.ui-jqgrid-title {
+        white-space: nowrap !important
+    }
+
+.ui-button {
+    outline: 0
+}
+
+.fm-button {
+    white-space: pre
+}
+
+.getpheduyet {
+    background: #FFF
+}
+
+    .getpheduyet:hover {
+        color: #E3686A;
+        font-weight: 700;
+        cursor: pointer
+    }
+
+.div_fixed {
+    position: fixed;
+    max-height: 250px;
+    overflow: auto;
+    z-index: 1100;
+    padding: 11px 13px 8px 13px;
+    width: auto;
+    border: 1px solid #f47e82;
+}
+
+.light-mode .div_fixed {
+    background-color: #f9f9f9e0;
+}
+
+.mix-mode .div_fixed {
+    background-color: #414141de;
+}
+
+#div_chuotphai table tr {
+    height: 25px
+}
+
+#div_chuotphai .table_div_chuotphai tr:hover {
+    color: #ff6600;
+    cursor: pointer
+}
+
+#div_chuotphai li:active {
+    cursor: wait
+}
+
+.nhan_spanclass {
+    font-size: 20px;
+    height: 20px;
+    padding: 4px
+}
+
+.nhan_divclass {
+    float: left;
+    padding: 6px;
+    cursor: pointer
+}
+
+.nhan_spanclass:hover {
+    background: rgba(222,242,230,.71)
+}
+
+.ui-jqgrid-btable .jqgrow td input[type=checkbox].cbox {
+    opacity: 0;
+    -ms-transform: scale(12,12);
+    -moz-transform: scale(12,12);
+    -webkit-transform: scale(12,12);
+    -o-transform: scale(12,12);
+    outline: 0
+}
+
+.ui-jqgrid-btable .jqgrow td.td_cbox {
+    cursor: pointer;
+}
+
+#ui-datepicker-div {
+    background-color: #FFF;
+    border: 1px solid red;
+}
+
+tr.ui-search-toolbar > th.ui-th-column:first-child > div:hover {
+    opacity: .8
+}
+
+tr.ui-search-toolbar > th.ui-th-column:first-child:active {
+    opacity: .5
+}
+
+.myAltRowClass {
+}
+
+div#popupCanvastapTin::before {
+    content: 'Để đóng ảnh lớn dưới đây, hãy nhấp vào ảnh';
+    position: absolute;
+    color: red;
+    z-index: 9999999;
+    font-size: 14px;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+div#popupCanvastapTin::before {
+    content: 'Để đóng ảnh lớn dưới đây, hãy nhấp vào ảnh';
+    position: absolute;
+    color: red;
+    z-index: 9999999;
+    font-size: 14px;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%, -50%);
+}
+
+input.format_vnn {
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    padding-right: 18px !important;
+}
+
+tr.ui-widget-content.jqgrow.ui-row-ltr > td > input.format_vnn {
+    border: none;
+    padding: 5px 0px 5px 0px;
+}
+
+.EditTable .DataTD input[type=checkbox]:focus-visible {
+    outline: 1px solid #000;
+}
+
+
+.tdRowSpanHover {
+    background: url(redmond/images/ui-bg_highlight-soft_75_d0e5f5_1x100.png) 50% 50% repeat-x #d0e5f5;
+    color: #1d5987;
+}
+
+td.tdDisplayMenuConfig {
+    position: relative;
+    width: 10%;
+    min-width: 220px;
+}
+
+div.displayMenuConfig {
+    position: absolute;
+    right: 13px;
+    top: 11px;
+    color: inherit;
+    font-size: 16px !important;
+    cursor: pointer;
+}
+
+    div.displayMenuConfig.favnn-spin {
+        animation: displayMenuConfig-spin 0.4s;
+    }
+
+    div.displayMenuConfig.favnn-spin-1 {
+        animation: displayMenuConfig-spin-1 0.4s;
+    }
+
+@keyframes displayMenuConfig-spin {
+    0% {
+        -webkit-transform: rotate( 0deg);
+        transform: rotate( 0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate( 1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes displayMenuConfig-spin-1 {
+    0% {
+        -webkit-transform: rotate( 0deg);
+        transform: rotate( 0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(-1turn);
+        transform: rotate(-1turn);
+    }
+}
+
+div.ui-layout-center {
+    width: auto !important;
+}
+
+td.menuSpaceModule {
+    width: 12px;
+    min-width: 12px;
+}
+
+#0 {
+    background: #ccc !important
+}
+
+#divScript {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    line-height: calc(100vh - 30px);
+    background-color: rgb(255 255 255 / 50%);
+    z-index: 2;
+    font-size: 30px !important;
+}
+
+span.formatsearch {
+    background-image: url(../images/icon/search.png);
+    background-size: 1.4em;
+    background-blend-mode: hard-light;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    padding: 3px 3px 3px 18px;
+    cursor: pointer;
+    height: 60%;
+    right: 3px;
+}
+
+input.format_vnn.formatdate {
+    background-image: url(../images/icon/clock.png);
+    background-size: 1.4em;
+    background-blend-mode: hard-light;
+    background-position-x: 99%;
+}
+
+input.format_vnn.formatnumber {
+    background-image: url(../images/icon/caculator-bold.png);
+    background-size: 1.4em;
+    background-position-x: 99%;
+}
+
+input.format_vnn.formatimage {
+    background-image: url(../images/icon/image.png)
+}
+
+input.format_vnn.formatpassword {
+    background-image: url(../images/icon/password.png)
+}
+
+input.format_vnn.formatlistbox {
+    cursor: pointer;
+    background-image: url(../images/icon/listbox.png)
+}
+
+input.format_vnn.formatfile {
+    cursor: pointer;
+    background-image: url(../images/icon/header_dktt.png)
+}
+
+.btnResizeGrid {
+    border: none !important;
+    padding: 0px 4px 4px 4px;
+    position: absolute !important;
+    right: 5px;
+    top: 2px !important;
+    z-index: 1;
+}
+
+#divRoteMobile {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    line-height: calc(100vh - 30px);
+    background-color: inherit;
+    z-index: 9999;
+    font-size: 30px !important;
+    font-weight: bold;
+}
+
+td[role="gridcell"][title="err"],
+td[role="gridcell"][title="-999,999,999"],
+td[role="gridcell"][title="-999,999,999.000"],
+td[role="gridcell"][title="01-01-1000 00:00"] {
+    font-size: 0px !important;
+}
+
+    td[role="gridcell"][title="err"] > input,
+    td[role="gridcell"][title="-999,999,999"] > input,
+    td[role="gridcell"][title="-999,999,999.000"] > input,
+    td[role="gridcell"][title="01-01-1000 00:00"] > input {
+        display: none;
+    }
+
+    td[role="gridcell"][title="err"]::after,
+    td[role="gridcell"][title="-999,999,999"]::after,
+    td[role="gridcell"][title="-999,999,999.000"]::after,
+    td[role="gridcell"][title="01-01-1000 00:00"]::after {
+        content: 'Trống';
+        color: #f8656b;
+        font-size: 0.65rem !important;
+        display: block;
+        overflow: hidden;
+        text-align: center;
+        user-select: none;
+    }
+
+.btnVNN {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btnChonTapTin {
+    border: 1px solid #000000;
+    border-radius: 6px;
+    background-image: linear-gradient(360deg, #000000, #88aecf);
+    padding: 4px 7px 5px 7px;
+    color: #FFF;
+    cursor: pointer !important;
+    letter-spacing: 0.5px;
+}
+
+    .btnChonTapTin:hover {
+        background-image: linear-gradient(120deg, #000000, #88aecf) !important;
+    }
+
+span.img_rightdiv.fa {
+    margin-left: 2px;
+    line-height: inherit !important;
+}
+
+a[excel] {
+    cursor: pointer;
+    color: blue !important;
+    user-select: none;
+    position: relative;
+    top: -5px;
+    right: 5px;
+    float: right;
+    text-decoration: underline;
+}
+
+img {
+    user-select: none;
+}
+
+#div_chuotphai {
+    user-select: none;
+}
+
+.ui-jqgrid-sortable, .ui-jqgrid-resize, .jqgrid-rownum, .ui-pager-control {
+    user-select: none;
+}
+
+.ui-pg-table .div-left-mouse {
+    transform: scale(0.77);
+    transform-origin: left;
+    position: relative;
+}
+
+    .ui-pg-table .div-left-mouse .img_btnmacdinh {
+        padding: 5px;
+        margin: 0px 0px 0px 5px;
+        font-size: 130%;
+    }
+
+.divRS_rs {
+    margin-top: 5px;
+    background-color: #fffebf;
+    font-size: 140% !important;
+    padding: 3px;
+    text-align: center;
+}
+
+.img_btnmacdinh.fa {
+    top: -1.5px;
+    font-size: 125%;
+    position: relative;
+}
+
+.poNhanTapTin {
+    color: #003dff !important;
+}
+
+input#min_id::placeholder, input#max_id::placeholder, input#min_date::placeholder, input#max_date::placeholder {
+    font-size: 70%;
+}
+
+.rightclick_header .img_btnmacdinh {
+    padding: 5px;
+}
+
+.DelButton, .EditButton {
+    user-select: none
+}
+
+.baget-status {
+    color: #FFF;
+    padding: 3px 6px 3px 6px;
+    text-align: center;
+    border-radius: 6px;
+    width: fit-content;
+    font-size: 80%;
+    display: inline;
+}
+.baget-red {
+    background-color: #ff7b7b;
+}
+.baget-blue {
+    background-color: #9090ff;
+}
+.baget-green {
+    background-color: green;
+}
+
+.btn-link-a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+body.light-mode .btn-link-a {
+    color: #4444e0;
+}
+
+body.mix-mode .btn-link-a {
+    color: #c9c4ff;
+}
+
+body.mix-mode .menu_div_dongkhung::-webkit-scrollbar-track,
+body.mix-mode .FormGrid::-webkit-scrollbar-track,
+body.mix-mode .ui-dialog-content::-webkit-scrollbar-track {
+    background: #000;
+}
+
+body.mix-mode .menu_div_dongkhung::-webkit-scrollbar-thumb,
+body.mix-mode .FormGrid::-webkit-scrollbar-thumb,
+body.mix-mode .ui-dialog-content::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 4px;
+}
+
+body.mix-mode .menu_div_dongkhung::-webkit-scrollbar,
+body.mix-mode .FormGrid::-webkit-scrollbar,
+body.mix-mode .ui-dialog-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Lớp nền mờ che toàn bộ màn hình */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Số 0.4 là độ đậm nhạt của lớp che */
+    z-index: 99999; /* Đảm bảo luôn nằm trên cùng mọi phần tử */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Hộp chứa spinner và chữ */
+.loading-box {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* CSS tạo biểu tượng vòng xoay (Spinner) */
+.spinner {
+    margin: 0 auto 15px auto;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Vòng viền mờ phía dưới */
+    border-radius: 50%;
+    border-top-color: #0078d4; /* Màu xanh của thanh xoay chính */
+    animation: spin 1s ease-in-out infinite; /* Chạy vô hạn */
+}
+
+/* Hiệu ứng xoay tròn 360 độ */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-box p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn-state-selected {
+    background-color: #fffbe3 !important;
+}
+
+.btn-state-hover:hover {
+    opacity:0.7;
+}
