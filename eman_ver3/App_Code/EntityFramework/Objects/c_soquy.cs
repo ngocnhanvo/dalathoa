@@ -103,6 +103,12 @@
                         public string nguoi_nop_nhan { get; set; }
                 
 						
+                        #region c_soquy_nguoi_thuchi_wintaFN
+                        
+                        #endregion c_soquy_nguoi_thuchi_wintaFN
+                        public string nguoi_thuchi { get; set; }
+                
+						
                         #region c_soquy_nguoicapnhat_wintaFN
                         
                         #endregion c_soquy_nguoicapnhat_wintaFN
@@ -155,6 +161,12 @@
                         
                         #endregion c_soquy_value_bophantao_wintaFN
                         public string value_bophantao { get; set; }
+                
+						
+                        #region c_soquy_value_nguoi_thuchi_wintaFN
+                        
+                        #endregion c_soquy_value_nguoi_thuchi_wintaFN
+                        public string value_nguoi_thuchi { get; set; }
                 
 						
                         #region c_soquy_value_nguoicapnhat_wintaFN

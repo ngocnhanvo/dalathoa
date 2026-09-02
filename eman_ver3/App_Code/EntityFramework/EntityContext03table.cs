@@ -539,6 +539,10 @@ modelBuilder.Entity<c_soquy>().HasKey<string>(p => p.c_soquy_id);
                             .HasColumnName("nguoi_nop_nhan")
                             .HasColumnType("nvarchar");
                             modelBuilder.Entity<c_soquy>()
+                            .Property(p => p.nguoi_thuchi)
+                            .HasColumnName("nguoi_thuchi")
+                            .HasColumnType("varchar");
+                            modelBuilder.Entity<c_soquy>()
                             .Property(p => p.nguoicapnhat)
                             .HasColumnName("nguoicapnhat")
                             .HasColumnType("varchar");
@@ -573,6 +577,10 @@ modelBuilder.Entity<c_soquy>().HasKey<string>(p => p.c_soquy_id);
                             modelBuilder.Entity<c_soquy>()
                             .Property(p => p.value_bophantao)
                             .HasColumnName("value_bophantao")
+                            .HasColumnType("nvarchar");
+                            modelBuilder.Entity<c_soquy>()
+                            .Property(p => p.value_nguoi_thuchi)
+                            .HasColumnName("value_nguoi_thuchi")
                             .HasColumnType("nvarchar");
                             modelBuilder.Entity<c_soquy>()
                             .Property(p => p.value_nguoicapnhat)
