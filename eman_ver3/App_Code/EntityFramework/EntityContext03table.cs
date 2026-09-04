@@ -555,6 +555,10 @@ modelBuilder.Entity<c_soquy>().HasKey<string>(p => p.c_soquy_id);
                             .HasColumnName("nguon_nghiepvu")
                             .HasColumnType("varchar");
                             modelBuilder.Entity<c_soquy>()
+                            .Property(p => p.phuongthucthanhtoan)
+                            .HasColumnName("phuongthucthanhtoan")
+                            .HasColumnType("nvarchar");
+                            modelBuilder.Entity<c_soquy>()
                             .Property(p => p.sotien)
                             .HasColumnName("sotien")
                             .HasColumnType("decimal").HasPrecision(18, 8);

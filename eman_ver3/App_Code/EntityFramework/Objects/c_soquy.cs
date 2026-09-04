@@ -127,6 +127,12 @@
                         public string nguon_nghiepvu { get; set; }
                 
 						
+                        #region c_soquy_phuongthucthanhtoan_wintaFN
+                        
+                        #endregion c_soquy_phuongthucthanhtoan_wintaFN
+                        public string phuongthucthanhtoan { get; set; }
+                
+						
                         #region c_soquy_sotien_wintaFN
                         
                         #endregion c_soquy_sotien_wintaFN
