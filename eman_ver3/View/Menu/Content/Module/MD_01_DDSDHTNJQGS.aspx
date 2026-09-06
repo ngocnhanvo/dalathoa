@@ -165,19 +165,22 @@
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                 </button>
 
-                <div class="md01-footer-desktop" style="display:grid; grid-template-columns:105px 125px 115px 125px; column-gap:18px; row-gap:8px; align-items:center; margin-left:auto; font-variant-numeric:tabular-nums;">
+                <div class="md01-footer-desktop" style="display:grid; grid-template-columns:100px auto 100px auto; column-gap:18px; row-gap:8px; align-items:center; margin-left:auto; font-variant-numeric:tabular-nums;">
                     <div style="text-align:right; color:#555; white-space:nowrap;">Tổng tiền:</div>
                     <div style="text-align:right; font-weight:600; white-space:nowrap;">${tongTien}</div>
+                    
+                    <div style="text-align:right; color:#555; white-space:nowrap;">Cần trả:</div>
+                    <div style="text-align:right; font-weight:700; color:#d9534f; font-size:1.08em; white-space:nowrap;">${tongCuoi}</div>
+
                     <div style="text-align:right; color:#555; white-space:nowrap;">Giảm giá:</div>
                     <div style="text-align:right; font-weight:600; white-space:nowrap;">${giamGia}</div>
 
-                    <div style="text-align:right; color:#555; white-space:nowrap;">Phụ thu:</div>
-                    <div style="text-align:right; font-weight:600; white-space:nowrap;">${phuThu}</div>
-                    <div style="text-align:right; color:#555; white-space:nowrap;">Khách cần trả:</div>
-                    <div style="text-align:right; font-weight:700; color:#d9534f; font-size:1.08em; white-space:nowrap;">${tongCuoi}</div>
-
                     <div style="text-align:right; color:#555; white-space:nowrap;">Đã trả:</div>
                     <div style="text-align:right; font-weight:600; white-space:nowrap;">${daThanhToan}</div>
+
+                    <div style="text-align:right; color:#555; white-space:nowrap;">Phụ thu:</div>
+                    <div style="text-align:right; font-weight:600; white-space:nowrap;">${phuThu}</div>
+                    
                     <div style="text-align:right; color:#555; white-space:nowrap;">Còn lại:</div>
                     <div style="text-align:right; font-weight:700; white-space:nowrap;">${conNo}</div>
                 </div>
