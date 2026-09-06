@@ -347,6 +347,10 @@ function loadDialogThemSuaSoQuy2(tengrid, id_parent, ma_module, ma_case, Form_in
             renderAllocations();
             try { Logo_Center(CLform_infor.logo, CLform_infor.canhgiua); } catch (e) { }
 
+            $('#btn_sq_cancel').prepend('<i class="fa fa-times" style="position:absolute;margin-right:50px"></i>');
+            $('#btn_sq_save_print').prepend('<i class="fa fa-print" style="position:absolute;margin-right:60px"></i>');
+            $('#btn_sq_save').prepend('<i class="fa fa-save" style="position:absolute;margin-right:50px"></i>');
+
             const isMobile = window.innerWidth <= 600;
             $('#btn_sq_cancel, #btn_sq_save_print, #btn_sq_save').css({
                 display:'inline-flex','align-items':'center','justify-content':'center',gap:isMobile?'4px':'8px',
