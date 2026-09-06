@@ -4057,7 +4057,7 @@
     "loaithuake": null,
     "header_grid": "",
     "select_sql": "dsdh.c_hoadonbanhang_id as c_hoadonbanhang_id,dsdh.trangthai as trangthai,null as md_trangthai_id, dsdh.sochungtu  as sochungtu,dtkd.ma_dtkd as nguoimuaid_kov,dsdh.nguoinhan_kov as nguoinhan_kov,dsdh.sdt_nguoinhan_kov as sdt_nguoinhan_kov,dsdh.diachi_nguoinhan_kov as diachi_nguoinhan_kov,dsdh.thongtinnhanhang as thongtinnhanhang,dsdh.ngaygiao as ngaygiao,dsdh.thongtinsanpham as thongtinsanpham, dsdh.trangthaithanhtoan as trangthaithanhtoan,dsdh.thongtinthanhtoan as thongtinthanhtoan,dsdh.trangthaigiaohang as trangthaigiaohang,dsdh.trangthaicam as trangthaicam, dsdh.thongtinxuathoadon as thongtinxuathoadon,dsdh.trangthaihoadon as trangthaihoadon,dsdh.ngayhoadon as ngayhoadon,dsdh.ngaytao  as ngaytao,null as ngayhoanthanh,dsdh.nguoitao as nguoitao,dsdh.ngaycapnhat  as ngaycapnhat,dsdh.nguoicapnhat  as nguoicapnhat,dsdh.mota  as mota,dsdh.hoatdong  as hoatdong,dsdh.tongtienhang_kov as tongtienhang_kov,dsdh.giamgia_kov as giamgia_kov,isnull(dsdh.thuthue_kov, 0) + isnull(dsdh.thuvanchuyen_kov, 0) as phuthu,dsdh.khachcantra_kov as khachcantra_kov, dsdh.hinhthucthanhtoan_kov as hinhthucthanhtoan_kov",
-    "from_sql": "c_hoadonbanhang dsdh\nleft join md_doitackinhdoanh dtkd on dtkd.md_doitackinhdoanh_id = dsdh.nguoimuaid_kov",
+    "from_sql": "c_hoadonbanhang dsdh\nleft join md_doitackinhdoanh dtkd on dtkd.md_doitackinhdoanh_id = dsdh.nguoimuaid_kov\nLEFT JOIN\n(\n    SELECT\n        pb.c_hoadonbanhang_id,\n        SUM(pb.sotien_phanbo) AS dathanhtoan\n    FROM c_soquy_hoadon pb\n    INNER JOIN c_soquy sq\n        ON sq.c_soquy_id = pb.c_soquy_id\n    WHERE\n        pb.hoatdong = 1\n        AND sq.trangthai <> 'HUYBO'\n    GROUP BY\n        pb.c_hoadonbanhang_id\n) tt\n    ON tt.c_hoadonbanhang_id = dsdh.c_hoadonbanhang_id\n",
     "Join_sql": "",
     "where_sql": "and dsdh.loai_kov = '01'",
     "orderby_sql": "dsdh.ngaytao desc",
@@ -4079,7 +4079,7 @@
     "value_vaitrocapnhat": null,
     "value_bophancapnhat": null,
     "ngaytao": "2015-11-20T11:40:28.087",
-    "ngaycapnhat": "2026-08-12T01:00:06.867",
+    "ngaycapnhat": "2026-09-06T14:17:25.42",
     "mota": null,
     "hoatdong": true,
     "soluong_mod": null
