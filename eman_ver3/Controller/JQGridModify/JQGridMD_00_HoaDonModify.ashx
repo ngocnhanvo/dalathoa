@@ -36,6 +36,7 @@ public class JQGridMD_00_HoaDonModify : IHttpHandler, System.Web.SessionState.IR
         public bool? thuho_cod { get; set; }
         public decimal? cod { get; set; }
         public string thongtinnhanhang { get; set; }
+        public string ngay_kov { get; set; }
         public string ngaygiao { get; set; }
         public string thongtinsanpham { get; set; }
         public string thongtinthanhtoan { get; set; }
@@ -690,7 +691,7 @@ public class JQGridMD_00_HoaDonModify : IHttpHandler, System.Web.SessionState.IR
 
             object_.loai_kov = master.loai;
             object_.nhanvien_kov = master.nhanvien;
-            object_.ngay_kov = DateTime.Now;
+            object_.ngay_kov = master.ngay_kov.ToNullableDateTime();
             object_.nguoimuaid_kov = master.nguoimuaid;
             object_.nguoimua_kov = master.nguoimua;
             object_.nguoinhan_kov = master.nguoinhan;
