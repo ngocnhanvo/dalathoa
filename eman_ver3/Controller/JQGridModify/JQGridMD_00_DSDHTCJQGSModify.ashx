@@ -21,6 +21,7 @@ public class JQGridMD_00_DSDHTCJQGSModify : IHttpHandler, System.Web.SessionStat
         public string trangthaigiaohang { get; set; }
         public string trangthaihoadon { get; set; }
         public string trangthaicam { get; set; }
+        public string trangthai { get; set; }
     }
     public EntityContext db = new EntityContext();
     public EntityFunction entityFunc = new EntityFunction();
@@ -165,6 +166,7 @@ public class JQGridMD_00_DSDHTCJQGSModify : IHttpHandler, System.Web.SessionStat
                 goto EndEventHandler;
             }
 
+            object_.trangthai = master.trangthai;
             object_.thongtinnhanhang = master.thongtinnhanhang;
             object_.thongtinsanpham = master.thongtinsanpham;
             object_.thongtinthanhtoan = master.thongtinthanhtoan;

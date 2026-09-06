@@ -217,10 +217,10 @@ public class JQGridMD_00_HoaDonModify : IHttpHandler, System.Web.SessionState.IR
                         && x.hoatdong != false)
                     .ToList();
 
-                foreach (var allocation in oldAllocations)
+                foreach (var allocation2 in oldAllocations)
                 {
-                    allocation.hoatdong = false;
-                    Helper.setDefaultValueWhenInsertOrUpdate(allocation, userTK, true);
+                    allocation2.hoatdong = false;
+                    Helper.setDefaultValueWhenInsertOrUpdate(allocation2, userTK, true);
                 }
             }
 
