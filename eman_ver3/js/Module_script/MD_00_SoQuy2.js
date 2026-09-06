@@ -150,11 +150,30 @@ function loadDialogThemSuaSoQuy2(tengrid, id_parent, ma_module, ma_case, Form_in
         openPrintDialog('?menu=MN_01_DTKD&case=CA_00_26102015014357160PM', 'Thêm đối tác', []);
     });
 
+    function fitDialogToViewport() {
+        if (!$dlg.hasClass('ui-dialog-content')) return;
+
+        const margin = 10;
+        const maxHeight = Math.max(420, window.innerHeight - (margin * 2));
+
+        $dlg.dialog('option', 'maxHeight', maxHeight);
+        $dlg.dialog('option', 'height', 'auto');
+        $dlg.dialog('option', 'position', {
+            my: 'center',
+            at: 'center',
+            of: window
+        });
+    }
+
     function renderAllocations() {
         if (!laThu) return;
         const enabled = $('#sq_phanbo_enabled').prop('checked');
         $('#sq_allocation_body').toggle(enabled);
-        if (!enabled) return;
+
+        if (!enabled) {
+            setTimeout(fitDialogToViewport, 0);
+            return;
+        }
 
         const rows = allocations.map((r, index) => {
             const giaTri = numberValue(r.gia_tri_phieu);
@@ -174,6 +193,7 @@ function loadDialogThemSuaSoQuy2(tengrid, id_parent, ma_module, ma_case, Form_in
 
         $('#sq_allocation_rows').html(rows || '<tr><td colspan="6" style="text-align:center;color:#7a8591">Chưa có hóa đơn để phân bổ</td></tr>');
         updateAllocationTotals();
+        setTimeout(fitDialogToViewport, 0);
     }
 
     function updateAllocationTotals() {
@@ -313,7 +333,8 @@ function loadDialogThemSuaSoQuy2(tengrid, id_parent, ma_module, ma_case, Form_in
         modal: true,
         width: Math.min(1200, Math.max(800, window.innerWidth - 120)),
         height: 'auto',
-        maxHeight: window.innerHeight - 40,
+        maxHeight: window.innerHeight - 20,
+        position: { my:'center', at:'center', of:window },
         open: function () {
             $('#sq_nguoi_nop_nhan')[0].keyfmt = 'ten_dtkd';
             format_khachhang.create($('#sq_nguoi_nop_nhan'));
@@ -345,6 +366,7 @@ function loadDialogThemSuaSoQuy2(tengrid, id_parent, ma_module, ma_case, Form_in
             }
 
             renderAllocations();
+            fitDialogToViewport();
             try { Logo_Center(CLform_infor.logo, CLform_infor.canhgiua); } catch (e) { }
 
             $('#btn_sq_cancel').prepend('<i class="fa fa-times" style="position:absolute;margin-right:50px"></i>');
