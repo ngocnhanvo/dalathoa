@@ -23,80 +23,78 @@
         padding-right: 0px;
     }
 
-    .md01-footer-mobile {
+    .md01-footer-mobile,
+    .md01-footer-search-mobile {
         display: none;
     }
 
     @media (max-width: 600px) {
-        .md01-footer-desktop {
+        .md01-footer-desktop,
+        .md01-footer-search-desktop {
             display: none !important;
         }
 
+        .md01-footer-wrap {
+            align-items: center !important;
+            padding: 5px 3px 3px !important;
+            gap: 6px;
+        }
+
+        .md01-footer-search-mobile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            flex: 0 0 30px;
+            border: 1px solid #aaa;
+            border-radius: 2px;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .md01-footer-search-mobile i {
+            font-size: 14px;
+        }
+
         .md01-footer-mobile {
-            display: block;
+            display: grid;
+            grid-template-columns: 62px minmax(72px, 1fr) 90px minmax(62px, .9fr);
+            column-gap: 6px;
+            row-gap: 6px;
+            align-items: center;
             width: 100%;
+            min-width: 0;
+            margin-left: auto;
             box-sizing: border-box;
             font-variant-numeric: tabular-nums;
         }
 
-        .md01-footer-mobile-main {
-            display: grid;
-            grid-template-columns: auto minmax(72px, 1fr) auto minmax(60px, .8fr) auto;
-            gap: 5px 7px;
-            align-items: center;
-            width: 100%;
-        }
-
         .md01-footer-mobile-label {
             color: #666;
+            text-align: right;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .md01-footer-mobile-value {
-            text-align: right;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .md01-footer-mobile-detail-btn {
-            border: 0;
-            background: transparent;
-            color: #0675e8;
-            padding: 3px 0 3px 5px;
-            cursor: pointer;
-            font: inherit;
-            white-space: nowrap;
-        }
-
-        .md01-footer-mobile-detail {
-            display: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 14px;
-            padding: 8px 0 2px;
-            margin-top: 6px;
-            border-top: 1px solid #ddd;
-        }
-
-        .md01-footer-mobile-detail.is-open {
-            display: grid;
-        }
-
-        .md01-footer-mobile-detail-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
             min-width: 0;
-        }
-
-        .md01-footer-mobile-detail-item span {
-            color: #666;
-            white-space: nowrap;
-        }
-
-        .md01-footer-mobile-detail-item strong {
             text-align: right;
+            font-weight: 600;
             white-space: nowrap;
+        }
+
+        .md01-footer-mobile-value.is-total {
+            font-weight: 700;
+        }
+
+        .md01-footer-mobile-value.is-payable {
+            color: #d9534f;
+            font-weight: 700;
         }
     }
 </style>
@@ -131,26 +129,12 @@
         return window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
     }
 
-    function resizeFooterGrid1(expanded) {
+    function resizeFooterGrid1() {
         if (!$grid1 || !$grid1.length) return;
 
-        let footerHeight = 75;
-        if (isMobileFooter1()) {
-            footerHeight = expanded ? 112 : 72;
-        }
-
+        let footerHeight = isMobileFooter1() ? 82 : 75;
         $grid1[0].hFooter = footerHeight;
         $grid1.jqGrid('setGridHeight', Math.max(80, getHeightGrid(1) - footerHeight));
-    }
-
-    function toggleFooterDetail1(btn) {
-        const $btn = $(btn);
-        const $detail = $btn.closest('.md01-footer-mobile').find('.md01-footer-mobile-detail');
-        const open = !$detail.hasClass('is-open');
-
-        $detail.toggleClass('is-open', open);
-        $btn.text(open ? 'Thu gọn' : 'Chi tiết');
-        resizeFooterGrid1(open);
     }
 
     var createFooter1 = function (elem) {
@@ -172,10 +156,14 @@
         const $col = $firstRow.find(`td[aria-describedby="${$grid.attr('id')}_thanhtien"]`);
         $col.attr('colspan', $cols.length).css('text-align', 'right');
         $col.html(`
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; width:100%; padding:8px 4px 4px; box-sizing:border-box; font-family:inherit; color:#000;">
-                <div style="padding-top:3px; flex:0 0 auto;">
+            <div class="md01-footer-wrap" style="display:flex; align-items:flex-start; justify-content:space-between; width:100%; padding:8px 4px 4px; box-sizing:border-box; font-family:inherit; color:#000;">
+                <div class="md01-footer-search-desktop" style="padding-top:3px; flex:0 0 auto;">
                     <input type="button" id="btn_donhanglq" onclick="open_DanhSachHangHoaLienQuan()" value="Tìm kiếm nâng cao" />
                 </div>
+
+                <button type="button" class="md01-footer-search-mobile" title="Tìm kiếm nâng cao" aria-label="Tìm kiếm nâng cao" onclick="open_DanhSachHangHoaLienQuan()">
+                    <i class="fa fa-search-plus" aria-hidden="true"></i>
+                </button>
 
                 <div class="md01-footer-desktop" style="display:grid; grid-template-columns:105px 125px 115px 125px; column-gap:18px; row-gap:8px; align-items:center; margin-left:auto; font-variant-numeric:tabular-nums;">
                     <div style="text-align:right; color:#555; white-space:nowrap;">Tổng tiền:</div>
@@ -195,24 +183,25 @@
                 </div>
 
                 <div class="md01-footer-mobile">
-                    <div class="md01-footer-mobile-main">
-                        <span class="md01-footer-mobile-label">Tổng:</span>
-                        <strong class="md01-footer-mobile-value">${tongTien}</strong>
-                        <span class="md01-footer-mobile-label">Còn lại:</span>
-                        <strong class="md01-footer-mobile-value">${conNo}</strong>
-                        <button type="button" class="md01-footer-mobile-detail-btn" onclick="toggleFooterDetail1(this)">Chi tiết</button>
-                    </div>
-                    <div class="md01-footer-mobile-detail">
-                        <div class="md01-footer-mobile-detail-item"><span>Giảm giá:</span><strong>${giamGia}</strong></div>
-                        <div class="md01-footer-mobile-detail-item"><span>Phụ thu:</span><strong>${phuThu}</strong></div>
-                        <div class="md01-footer-mobile-detail-item"><span>Khách cần trả:</span><strong style="color:#d9534f;">${tongCuoi}</strong></div>
-                        <div class="md01-footer-mobile-detail-item"><span>Đã trả:</span><strong>${daThanhToan}</strong></div>
-                    </div>
+                    <span class="md01-footer-mobile-label">Tổng tiền:</span>
+                    <strong class="md01-footer-mobile-value is-total">${tongTien}</strong>
+                    <span class="md01-footer-mobile-label">Giảm giá:</span>
+                    <strong class="md01-footer-mobile-value">${giamGia}</strong>
+
+                    <span class="md01-footer-mobile-label">Phụ thu:</span>
+                    <strong class="md01-footer-mobile-value">${phuThu}</strong>
+                    <span class="md01-footer-mobile-label">Khách cần trả:</span>
+                    <strong class="md01-footer-mobile-value is-payable">${tongCuoi}</strong>
+
+                    <span class="md01-footer-mobile-label">Đã trả:</span>
+                    <strong class="md01-footer-mobile-value">${daThanhToan}</strong>
+                    <span class="md01-footer-mobile-label">Còn lại:</span>
+                    <strong class="md01-footer-mobile-value is-total">${conNo}</strong>
                 </div>
             </div>
         `);
 
-        resizeFooterGrid1(false);
+        resizeFooterGrid1();
     }
 
     let $grid1 = $(`#${tengrid1}`);
