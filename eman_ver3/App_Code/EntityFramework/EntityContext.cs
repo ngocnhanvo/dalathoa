@@ -76,6 +76,7 @@ public virtual DbSet<c_nhucauvattu_dhpx> c_nhucauvattu_dhpx { get; set; }
 public virtual DbSet<c_nhucauvattu_ycmvt> c_nhucauvattu_ycmvt { get; set; }
 public virtual DbSet<c_phidathang> c_phidathang { get; set; }
 public virtual DbSet<c_soquy> c_soquy { get; set; }
+public virtual DbSet<c_soquy_hoadon> c_soquy_hoadon { get; set; }
 public virtual DbSet<c_yeucaumuavt> c_yeucaumuavt { get; set; }
 public virtual DbSet<c_yeucaumuavt_cdh> c_yeucaumuavt_cdh { get; set; }
 public virtual DbSet<md_banggia> md_banggia { get; set; }
