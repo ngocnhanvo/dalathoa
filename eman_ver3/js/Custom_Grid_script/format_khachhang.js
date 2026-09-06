@@ -72,6 +72,10 @@ var format_khachhang = {
     search: function (elem, type) {
         const k = format_khachhang.key;
         let $elem = $(elem).prev();
+        if ($elem.prop('disabled')) {
+            return;
+        }
+
         let load_sp = 0, cellSav = {};
         const gridMasterId = 'gridMD_00_DTKD_cp';
         $('body').append(`
