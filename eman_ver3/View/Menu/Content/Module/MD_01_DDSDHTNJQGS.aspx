@@ -22,6 +22,83 @@
     .ui-jqgrid-sdiv .ui-jqgrid-hbox {
         padding-right: 0px;
     }
+
+    .md01-footer-mobile {
+        display: none;
+    }
+
+    @media (max-width: 600px) {
+        .md01-footer-desktop {
+            display: none !important;
+        }
+
+        .md01-footer-mobile {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .md01-footer-mobile-main {
+            display: grid;
+            grid-template-columns: auto minmax(72px, 1fr) auto minmax(60px, .8fr) auto;
+            gap: 5px 7px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .md01-footer-mobile-label {
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .md01-footer-mobile-value {
+            text-align: right;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .md01-footer-mobile-detail-btn {
+            border: 0;
+            background: transparent;
+            color: #0675e8;
+            padding: 3px 0 3px 5px;
+            cursor: pointer;
+            font: inherit;
+            white-space: nowrap;
+        }
+
+        .md01-footer-mobile-detail {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 14px;
+            padding: 8px 0 2px;
+            margin-top: 6px;
+            border-top: 1px solid #ddd;
+        }
+
+        .md01-footer-mobile-detail.is-open {
+            display: grid;
+        }
+
+        .md01-footer-mobile-detail-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .md01-footer-mobile-detail-item span {
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .md01-footer-mobile-detail-item strong {
+            text-align: right;
+            white-space: nowrap;
+        }
+    }
 </style>
 
 <table id='grid<%=ma_module %>'></table>
@@ -50,24 +127,45 @@
 <script type="text/javascript">
 <%=VNN_JQGridver2.get_layout_face() %>
 
+    function isMobileFooter1() {
+        return window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+    }
+
+    function resizeFooterGrid1(expanded) {
+        if (!$grid1 || !$grid1.length) return;
+
+        let footerHeight = 75;
+        if (isMobileFooter1()) {
+            footerHeight = expanded ? 112 : 72;
+        }
+
+        $grid1[0].hFooter = footerHeight;
+        $grid1.jqGrid('setGridHeight', Math.max(80, getHeightGrid(1) - footerHeight));
+    }
+
+    function toggleFooterDetail1(btn) {
+        const $btn = $(btn);
+        const $detail = $btn.closest('.md01-footer-mobile').find('.md01-footer-mobile-detail');
+        const open = !$detail.hasClass('is-open');
+
+        $detail.toggleClass('is-open', open);
+        $btn.text(open ? 'Thu gọn' : 'Chi tiết');
+        resizeFooterGrid1(open);
+    }
+
     var createFooter1 = function (elem) {
         let $grid = $(elem);
         const $gridPR = $('#' + tengrid0);
         const $rowPR = $gridPR.getRowData(id_parent1);
-        // Giả sử đây là số tiền bạn đã tính toán được
         let tongTien = $rowPR.tongtienhang_kov;
         let giamGia = $rowPR.giamgia_kov;
         let phuThu = $rowPR.phuthu;
         let tongCuoi = $rowPR.khachcantra_kov;
         let daThanhToan = $rowPR.dathanhtoan;
         let conNo = $rowPR.conno;
-        // Tìm bảng chứa footer của Grid này
         let $footerTable = $grid.closest('.ui-jqgrid-bdiv').next('.ui-jqgrid-sdiv').find('.ui-jqgrid-ftable');
-
-        // Tìm hàng footer gốc đầu tiên
         let $firstRow = $footerTable.find('tr.footrow');
 
-        // Xóa các hàng footer custom cũ nếu có (để tránh bị lặp khi reload grid)
         $footerTable.find('.custom-footer-row').remove();
         const $cols = $firstRow.find(`td[aria-describedby!="${$grid.attr('id')}_thanhtien"]`);
         $cols.hide();
@@ -79,7 +177,7 @@
                     <input type="button" id="btn_donhanglq" onclick="open_DanhSachHangHoaLienQuan()" value="Tìm kiếm nâng cao" />
                 </div>
 
-                <div style="display:grid; grid-template-columns:105px 125px 115px 125px; column-gap:18px; row-gap:8px; align-items:center; margin-left:auto; font-variant-numeric:tabular-nums;">
+                <div class="md01-footer-desktop" style="display:grid; grid-template-columns:105px 125px 115px 125px; column-gap:18px; row-gap:8px; align-items:center; margin-left:auto; font-variant-numeric:tabular-nums;">
                     <div style="text-align:right; color:#555; white-space:nowrap;">Tổng tiền:</div>
                     <div style="text-align:right; font-weight:600; white-space:nowrap;">${tongTien}</div>
                     <div style="text-align:right; color:#555; white-space:nowrap;">Giảm giá:</div>
@@ -95,8 +193,26 @@
                     <div style="text-align:right; color:#555; white-space:nowrap;">Còn lại:</div>
                     <div style="text-align:right; font-weight:700; white-space:nowrap;">${conNo}</div>
                 </div>
+
+                <div class="md01-footer-mobile">
+                    <div class="md01-footer-mobile-main">
+                        <span class="md01-footer-mobile-label">Tổng:</span>
+                        <strong class="md01-footer-mobile-value">${tongTien}</strong>
+                        <span class="md01-footer-mobile-label">Còn lại:</span>
+                        <strong class="md01-footer-mobile-value">${conNo}</strong>
+                        <button type="button" class="md01-footer-mobile-detail-btn" onclick="toggleFooterDetail1(this)">Chi tiết</button>
+                    </div>
+                    <div class="md01-footer-mobile-detail">
+                        <div class="md01-footer-mobile-detail-item"><span>Giảm giá:</span><strong>${giamGia}</strong></div>
+                        <div class="md01-footer-mobile-detail-item"><span>Phụ thu:</span><strong>${phuThu}</strong></div>
+                        <div class="md01-footer-mobile-detail-item"><span>Khách cần trả:</span><strong style="color:#d9534f;">${tongCuoi}</strong></div>
+                        <div class="md01-footer-mobile-detail-item"><span>Đã trả:</span><strong>${daThanhToan}</strong></div>
+                    </div>
+                </div>
             </div>
         `);
+
+        resizeFooterGrid1(false);
     }
 
     let $grid1 = $(`#${tengrid1}`);
