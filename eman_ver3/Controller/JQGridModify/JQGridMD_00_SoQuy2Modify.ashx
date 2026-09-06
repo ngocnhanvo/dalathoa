@@ -120,7 +120,7 @@ public class JQGridMD_00_SoQuy2Modify :
             .Sum()
             .GetValueOrDefault(0);
 
-        // Tương thích phiếu cũ / phiếu tự sinh từ hóa đơn trước khi có bảng detail.
+        // Tương thích dữ liệu cũ chưa có dòng c_soquy_hoadon.
         decimal tuLegacy =
             db.c_soquy
             .Where(s =>
@@ -138,6 +138,34 @@ public class JQGridMD_00_SoQuy2Modify :
             .GetValueOrDefault(0);
 
         return tuDetail + tuLegacy;
+    }
+
+    // khachthanhtoan_kov từ đây mang nghĩa tổng số tiền thực tế đã thu của hóa đơn.
+    // Không đụng trangthaithanhtoan vì trạng thái vẫn do người dùng quyết định độc lập.
+    private void dongBoThanhToanHoaDon(IEnumerable<string> hoaDonIds)
+    {
+        var ids = (hoaDonIds ?? Enumerable.Empty<string>())
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .Select(x => x.Trim())
+            .Distinct()
+            .ToList();
+
+        foreach (var hoaDonId in ids)
+        {
+            var hd = db.c_hoadonbanhang.FirstOrDefault(h =>
+                h.c_hoadonbanhang_id == hoaDonId);
+
+            if (hd == null)
+                continue;
+
+            decimal daThanhToan = tongDaThuHoaDon(hoaDonId, null);
+            decimal khachCanTra = hd.khachcantra_kov.GetValueOrDefault(0);
+
+            hd.khachthanhtoan_kov = daThanhToan;
+            hd.ghino_kov = Math.Max(0, khachCanTra - daThanhToan);
+
+            Helper.setDefaultValueWhenInsertOrUpdate(hd, userTK, true);
+        }
     }
 
     private decimal phanBoCuaPhieu(string soQuyId, string hoaDonId)
@@ -585,10 +613,17 @@ public class JQGridMD_00_SoQuy2Modify :
             object_ = Helper.setDefaultValueWhenInsertOrUpdate(object_, userTK, false);
             db.c_soquy.Add(object_);
 
-            msg = dongBoPhanBo(object_, getPhanBo(context), false);
+            var phanBo = getPhanBo(context);
+            msg = dongBoPhanBo(object_, phanBo, false);
             if (!string.IsNullOrWhiteSpace(msg))
                 goto EndEventHandler;
 
+            // Save allocation trước để phép SUM bên dưới luôn đọc dữ liệu chuẩn từ DB.
+            db.SaveChanges();
+
+            dongBoThanhToanHoaDon(
+                phanBo.Select(x => x.c_hoadonbanhang_id)
+            );
             db.SaveChanges();
         }
         catch (Exception ex)
@@ -644,6 +679,15 @@ public class JQGridMD_00_SoQuy2Modify :
                 msg = "Không nhận được dữ liệu phiếu.";
                 goto EndEventHandler;
             }
+
+            var hoaDonBiAnhHuong = db.c_soquy_hoadon
+                .Where(x => x.c_soquy_id == id && x.hoatdong != false)
+                .Select(x => x.c_hoadonbanhang_id)
+                .Distinct()
+                .ToList();
+
+            if (!string.IsNullOrWhiteSpace(object_.c_hoadonbanhang_id))
+                hoaDonBiAnhHuong.Add(object_.c_hoadonbanhang_id);
 
             string maPhieuCu = object_.ma_phieu;
             string loaiGiaoDichCu = (object_.loai_giaodich ?? "").Trim().ToUpper();
@@ -718,10 +762,21 @@ public class JQGridMD_00_SoQuy2Modify :
                 object_.nguon_nghiepvu == NGUON_HOADON
                 && !string.IsNullOrWhiteSpace(object_.c_hoadonbanhang_id);
 
-            msg = dongBoPhanBo(object_, getPhanBo(context), khoaTheoHoaDonNguon);
+            var phanBo = getPhanBo(context);
+            msg = dongBoPhanBo(object_, phanBo, khoaTheoHoaDonNguon);
             if (!string.IsNullOrWhiteSpace(msg))
                 goto EndEventHandler;
 
+            hoaDonBiAnhHuong.AddRange(
+                phanBo.Select(x => x.c_hoadonbanhang_id)
+            );
+
+            if (khoaTheoHoaDonNguon)
+                hoaDonBiAnhHuong.Add(object_.c_hoadonbanhang_id);
+
+            db.SaveChanges();
+
+            dongBoThanhToanHoaDon(hoaDonBiAnhHuong);
             db.SaveChanges();
         }
         catch (Exception ex)
@@ -774,19 +829,28 @@ public class JQGridMD_00_SoQuy2Modify :
                 goto EndEventHandler;
             }
 
+            var hoaDonBiAnhHuong = new List<string>();
+
             foreach (var object_ in objects)
             {
                 if (object_.trangthai == Helper.HUYBO)
                     continue;
-
-                object_.trangthai = Helper.HUYBO;
-                Helper.setDefaultValueWhenInsertOrUpdate(object_, userTK, true);
 
                 var allocations = db.c_soquy_hoadon
                     .Where(x =>
                         x.c_soquy_id == object_.c_soquy_id
                         && x.hoatdong != false)
                     .ToList();
+
+                hoaDonBiAnhHuong.AddRange(
+                    allocations.Select(x => x.c_hoadonbanhang_id)
+                );
+
+                if (!string.IsNullOrWhiteSpace(object_.c_hoadonbanhang_id))
+                    hoaDonBiAnhHuong.Add(object_.c_hoadonbanhang_id);
+
+                object_.trangthai = Helper.HUYBO;
+                Helper.setDefaultValueWhenInsertOrUpdate(object_, userTK, true);
 
                 foreach (var allocation in allocations)
                 {
@@ -795,6 +859,9 @@ public class JQGridMD_00_SoQuy2Modify :
                 }
             }
 
+            db.SaveChanges();
+
+            dongBoThanhToanHoaDon(hoaDonBiAnhHuong);
             db.SaveChanges();
         }
         catch (Exception ex)
